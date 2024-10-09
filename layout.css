@@ -1,0 +1,28 @@
+html, body {
+    background-color: beige;
+}
+
+#map {
+    width: 100%; /* Set to full width of the parent container */
+    height: 400px; /* Set a fixed height */
+    margin: 20px 0; /* Add vertical space */
+    margin-left: 170px;
+}
+
+#barchart {
+    margin-top: 20px; /* Adjust to move down */
+    padding: 20px; /* Optional: space inside the charts */
+    border-radius: 5px; /* Optional: rounded corners */
+}
+
+
+#inflationlinechart, #arrivalslinechart {
+    margin-top: 10px; /* Adjust to move down */
+    padding: 10px; /* Optional: space inside the charts */
+}
+
+.pure-u-1 {
+    display: block;
+    margin: 20px auto; /* Space around sections */
+    text-align: center; /* Optional: center content */
+}
