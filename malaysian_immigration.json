@@ -1,8 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Immigrations to Malaysia (2020-2024)",
-  "width": 600,
+  "title": {
+    "text": "Arrivals by State",
+    "anchor": "start",
+    "fontSize": 25   
+  },
+  "width": 1000,
   "height": 400,
+  "background": "beige",
   "projection": {"type": "mercator"},
   "data": {
     "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1/refs/heads/main/ne_1.json",
