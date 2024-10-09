@@ -1,0 +1,51 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Arrivals by State",
+    "anchor": "start",
+    "fontSize": 25   
+  },
+  "width": 1000,
+  "height": 400,
+  "background": "beige",
+  "projection": {"type": "mercator"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1/refs/heads/main/ne_1.json",
+    "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "aggregated_arrivals_soe.csv"
+        },
+        "key": "soe",
+        "fields": ["total_arrivals", "total_population"]
+      }
+    },
+    {
+      "calculate": "(datum.total_arrivals / datum.total_population) * 100",
+      "as": "arrivals_per_population"
+    }
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "arrivals_per_population",
+      "type": "quantitative",
+      "title": "Immigrants per Population (%)",
+      "scale": {"type": "log"}
+    },
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "State"},
+      {"field": "total_arrivals", "type": "quantitative", "title": "Total Arrivals"},
+      {"field": "total_population", "type": "quantitative", "title": "Total Population"},
+      {
+        "field": "arrivals_per_population",
+        "type": "quantitative",
+        "title": "Immigrants per Population (%)"
+      }
+    ]
+  }
+}
