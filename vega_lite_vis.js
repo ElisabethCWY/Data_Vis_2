@@ -11,8 +11,16 @@ vegaEmbed("#barchart", vg_bar).then(function(result) {
 }).catch(console.error);
 
 // Path to the bar chart JSON
-var vg_bar = "testing.json";
-vegaEmbed("#barchart2", vg_bar).then(function(result) {
+var vg_bar = "inflation_linechart.json";
+vegaEmbed("#inflationlinechart", vg_bar).then(function(result) {
     // Access the Vega view instance if needed
 }).catch(console.error);
+
+// Path to the bar chart JSON
+var vg_bar = "arrivals_linechart.json";
+vegaEmbed("#arrivalslinechart", vg_bar).then(function(result) {
+    // Access the Vega view instance if needed
+}).catch(console.error);
+
+
 
