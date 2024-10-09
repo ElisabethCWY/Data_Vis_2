@@ -1,8 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Total Arrivals by State (Female vs Male)",
-  "width": 500,
-  "height": 400,
+  "width": 1200,
+  "height": 600,
+  "background": "beige",
   "data": {
     "url": "aggregated_arrivals_soe.csv",
     "format": {"type": "csv"}
