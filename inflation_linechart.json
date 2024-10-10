@@ -1,93 +1,56 @@
 {
-    "background": "beige",
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "CPI: YoY vs MoM Inflation (Monthly Averaged)",
-    "width": 600,
-    "height": 400,
-    "data": {
-      "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1_Submission/refs/heads/main/cpi_arrivals_join.csv",
-      "format": {"type": "csv"}
+  "background": "beige",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "CPI: YoY vs MoM Inflation (Monthly Averaged)",
+    "fontSize": 25   
+  },
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1_Submission/refs/heads/main/cpi_arrivals_join.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"calculate": "month(datum.date)", "as": "month"},
+    {"calculate": "year(datum.date)", "as": "year"},
+    {
+      "aggregate": [
+        {"op": "mean", "field": "inflation_yoy", "as": "inflation_yoy_avg"},
+        {"op": "mean", "field": "inflation_mom", "as": "inflation_mom_avg"}
+      ],
+      "groupby": ["year", "month"]
     },
-    "transform": [
-      {
-        "calculate": "month(datum.date)", 
-        "as": "month"
+    {"calculate": "datetime(datum.year, datum.month, 1)", "as": "month_date"},
+    {
+      "fold": ["inflation_yoy_avg", "inflation_mom_avg"],
+      "as": ["InflationType", "InflationValue"]
+    }
+  ],
+  "mark": {"type": "line", "interpolate": "monotone"},
+  "encoding": {
+    "x": {
+      "field": "month_date",
+      "type": "temporal",
+      "title": "Date",
+      "axis": {"format": "%Y", "tickCount": 5, "labelOverlap": "parity"}
+    },
+    "y": {
+      "field": "InflationValue",
+      "type": "quantitative",
+      "title": "Inflation Rate (%)"
+    },
+    "color": {
+      "field": "InflationType",
+      "type": "nominal",
+      "title": "Inflation Type",
+      "scale": {
+        "domain": ["inflation_yoy_avg", "inflation_mom_avg"]
       },
-      {
-        "calculate": "year(datum.date)",  
-        "as": "year"
-      },
-      {
-        "aggregate": [
-          {
-            "op": "mean",
-            "field": "inflation_yoy",
-            "as": "inflation_yoy_avg"
-          },
-          {
-            "op": "mean",
-            "field": "inflation_mom",
-            "as": "inflation_mom_avg"
-          }
-        ],
-        "groupby": ["year", "month"]  
-      },
-      {
-        "calculate": "datetime(datum.year, datum.month, 1)", 
-        "as": "month_date"
+      "legend": {
+        "title": "Inflation Type",
+        "labelExpr":"{'inflation_yoy_avg': 'Year on Year', 'inflation_mom_avg': 'Month on Month'}[datum.label]"
       }
-    ],
-    "layer": [
-      {
-        "mark": {
-          "type": "line",
-          "interpolate": "monotone"
-        },
-        "encoding": {
-          "x": {
-            "field": "month_date",  
-            "type": "temporal",
-            "title": "Date",
-            "axis": {
-              "format": "%Y",  
-              "tickCount": 5,  
-              "labelOverlap": "parity"  
-            }
-          },
-          "y": {
-            "field": "inflation_yoy_avg", 
-            "type": "quantitative",
-            "title": "Inflation Rate (%)"
-          },
-          "color": {
-            "value": "#1f77b4"  
-          }
-        }
-      },
-      {
-        "mark": {
-          "type": "line",
-          "interpolate": "monotone"
-        },
-        "encoding": {
-          "x": {
-            "field": "month_date", 
-            "type": "temporal",
-            "axis": {
-              "format": "%Y",  
-              "tickCount": 5, 
-              "labelOverlap": "parity" 
-            }
-          },
-          "y": {
-            "field": "inflation_mom_avg",  
-            "type": "quantitative"
-          },
-          "color": {
-            "value": "#ff7f0e"  
-          }
-        }
-      }
-    ]
+    }
   }
-  
+}
