@@ -1,6 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Total Arrivals by State (Female vs Male)",
+  "title": {
+    "text": "Total Arrivals by Gender",
+    "fontSize": 25   
+  },
   "width": 1200,
   "height": 600,
   "background": "beige",
