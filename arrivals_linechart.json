@@ -1,6 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Total Arrivals Over Time (Smoothed)",
+    "title": {
+    "text": "CPI: YoY vs MoM Inflation (Monthly Averaged)",
+    "fontSize": 25   
+     },
     "background": "beige",
     "width": 600,
     "height": 400,
