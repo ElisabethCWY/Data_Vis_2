@@ -3,7 +3,7 @@
   "title": {
     "text": "Arrivals by State",
     "anchor": "start",
-    "fontSize": 25   
+    "fontSize": 25
   },
   "width": 1000,
   "height": 400,
@@ -18,7 +18,7 @@
       "lookup": "properties.name",
       "from": {
         "data": {
-          "url": "aggregated_arrivals_soe.csv"
+          "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1/refs/heads/main/aggregated_arrivals_soe.csv"
         },
         "key": "soe",
         "fields": ["total_arrivals", "total_population"]
@@ -29,6 +29,14 @@
       "as": "arrivals_per_population"
     }
   ],
+  "selection": {
+    "highlight": {
+      "type": "single",
+      "on": "mouseover",  // Trigger on hover
+      "empty": "none",    // No selection, no highlight
+      "fields": ["properties.name"]
+    }
+  },
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
@@ -36,6 +44,13 @@
       "type": "quantitative",
       "title": "Immigrants per Population (%)",
       "scale": {"type": "log"}
+    },
+    "opacity": {
+      "condition": {
+        "selection": "highlight",
+        "value": 1   // Full opacity for the hovered state
+      },
+      "value": 0.2   // Fade out for non-hovered states
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "State"},
