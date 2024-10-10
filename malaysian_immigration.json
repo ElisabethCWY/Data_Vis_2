@@ -32,8 +32,8 @@
   "selection": {
     "highlight": {
       "type": "single",
-      "on": "mouseover",  // Trigger on hover
-      "empty": "none",    // No selection, no highlight
+      "on": "mouseover", 
+      "empty": "none",    
       "fields": ["properties.name"]
     }
   },
@@ -48,9 +48,9 @@
     "opacity": {
       "condition": {
         "selection": "highlight",
-        "value": 1   // Full opacity for the hovered state
+        "value": 1   
       },
-      "value": 0.2   // Fade out for non-hovered states
+      "value": 0.2   
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "State"},
