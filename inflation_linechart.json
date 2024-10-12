@@ -2,8 +2,8 @@
   "background": "rgb(0,0,0,0)",
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "CPI: YoY vs MoM Inflation (Monthly Averaged)",
-    "fontSize": 25   
+    "text": "CPI: Month on Month Inflation by State",
+    "fontSize": 25
   },
   "width": 600,
   "height": 400,
@@ -14,19 +14,16 @@
   "transform": [
     {"calculate": "month(datum.date)", "as": "month"},
     {"calculate": "year(datum.date)", "as": "year"},
-    {
-      "aggregate": [
-        {"op": "mean", "field": "inflation_yoy", "as": "inflation_yoy_avg"},
-        {"op": "mean", "field": "inflation_mom", "as": "inflation_mom_avg"}
-      ],
-      "groupby": ["year", "month"]
-    },
-    {"calculate": "datetime(datum.year, datum.month, 1)", "as": "month_date"},
-    {
-      "fold": ["inflation_yoy_avg", "inflation_mom_avg"],
-      "as": ["InflationType", "InflationValue"]
-    }
+    {"calculate": "datetime(datum.year, datum.month, 1)", "as": "month_date"}
   ],
+  "selection": {
+    "stateSelection": {
+      "type": "single",
+      "fields": ["state"],
+      "on": "click",
+      "bind": "legend"  
+    }
+  },
   "mark": {"type": "line", "interpolate": "monotone"},
   "encoding": {
     "x": {
@@ -36,21 +33,24 @@
       "axis": {"format": "%Y", "tickCount": 5, "labelOverlap": "parity"}
     },
     "y": {
-      "field": "InflationValue",
+      "field": "inflation_mom", 
       "type": "quantitative",
       "title": "Inflation Rate (%)"
     },
     "color": {
-      "field": "InflationType",
+      "field": "state", 
       "type": "nominal",
-      "title": "Inflation Type",
+      "title": "State",
       "scale": {
-        "domain": ["inflation_yoy_avg", "inflation_mom_avg"]
-      },
-      "legend": {
-        "title": "Inflation Type",
-        "labelExpr":"{'inflation_yoy_avg': 'Year on Year', 'inflation_mom_avg': 'Month on Month'}[datum.label]"
+        "scheme": "tableau10" 
       }
+    },
+    "opacity": {
+      "condition": {
+        "selection": "stateSelection", 
+        "value": 1        
+      },
+      "value": 0.05
     }
   }
 }
