@@ -6,7 +6,7 @@
   },
   "width": 1200,
   "height": 600,
-  "background": "beige",
+  "background": "rgb(0,0,0,0)",
   "data": {
     "url": "aggregated_arrivals_soe.csv",
     "format": {"type": "csv"}

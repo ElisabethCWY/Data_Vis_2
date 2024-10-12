@@ -7,7 +7,7 @@
   },
   "width": 1000,
   "height": 400,
-  "background": "beige",
+  "background": "rgb(0,0,0,0)",
   "projection": {"type": "mercator"},
   "data": {
     "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1/refs/heads/main/ne_1.json",

@@ -4,7 +4,7 @@
     "text": "Immigration Arrivals Trends",
     "fontSize": 25
   },
-  "background": "beige",
+  "background": "rgb(0,0,0,0)",
   "width": 600,
   "height": 400,
   "data": {
