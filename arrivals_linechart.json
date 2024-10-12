@@ -1,60 +1,59 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
     "text": "Immigration Arrivals Trends",
-    "fontSize": 25   
-     },
-    "background": "beige",
-    "width": 600,
-    "height": 400,
-    "data": {
-      "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1_Submission/refs/heads/main/cpi_arrivals_join.csv",
-      "format": {"type": "csv"}
-    },
-    "transform": [
-      {
-        "calculate": "month(datum.date)",  
-        "as": "month"
-      },
-      {
-        "calculate": "year(datum.date)", 
-        "as": "year"
-      },
-      {
-        "aggregate": [
-          {
-            "op": "mean",
-            "field": "total_arrivals",
-            "as": "total_arrivals_avg"  
-          }
-        ],
-        "groupby": ["year", "month"]  
-      },
-      {
-        "calculate": "toDate(datum.year + '-' + datum.month + '-01')",  
-        "as": "month_date"
+    "fontSize": 25
+  },
+  "background": "beige",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1_Submission/refs/heads/main/cpi_arrivals_join.csv",
+    "format": {"type": "csv"}
+  },
+  "selection": {
+    "stateSelection": {
+      "type": "single",
+      "fields": ["state"],
+      "on": "click",
+      "bind": "legend"
+    }
+  },
+  "mark": {
+    "type": "line",
+    "interpolate": "monotone"
+  },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {
+        "format": "%Y",
+        "tickCount": 5,
+        "labelOverlap": "parity",
+        "title": "Years",
+        "grid": false
       }
-    ],
-    "mark": {
-      "type": "line",
-      "interpolate": "monotone"  
     },
-    "encoding": {
-      "x": {
-        "field": "month_date",  
-        "type": "temporal",
-        "axis": {
-          "format": "%Y", 
-          "tickCount": 5,  
-          "labelOverlap": "parity",
-          "title": "Years"
-        }
-      },
-      "y": {
-        "field": "total_arrivals_avg",  
-        "type": "quantitative",
-        "title": "Average Total Arrivals"
+    "y": {
+      "field": "total_arrivals",
+      "type": "quantitative",
+      "title": "Total Arrivals"
+    },
+    "color": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State",
+      "scale": {
+        "scheme": "observable10" 
       }
+    },
+    "opacity": {
+      "condition": {
+        "selection": "stateSelection",
+        "value": 1
+      },
+      "value": 0.3
     }
   }
-  
+}
