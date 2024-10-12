@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-    "text": "CPI: YoY vs MoM Inflation (Monthly Averaged)",
+    "text": "Immigration Arrivals Trends",
     "fontSize": 25   
      },
     "background": "beige",

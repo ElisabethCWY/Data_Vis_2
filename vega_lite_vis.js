@@ -1,5 +1,5 @@
 // Path to the map JSON
-var vg_map = "malaysian_immigration.json";
+var vg_map = "malaysian_immigration_map.json";
 vegaEmbed("#map", vg_map).then(function(result) {
     // Access the Vega view instance if needed
 }).catch(console.error);
