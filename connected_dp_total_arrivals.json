@@ -17,7 +17,7 @@
         "as": ["Gender", "TotalArrivals"]
       },
       {
-        "calculate": "datum.TotalArrivals /1000", 
+        "calculate": "datum.TotalArrivals /1000",  
         "as": "PercentageArrivals"
       }
     ],
@@ -63,6 +63,10 @@
             "scale": {
               "domain": ["total_arrivals_female", "total_arrivals_male"],
               "range": ["#db646f", "#007bff"]
+            },
+            "legend": {
+              "title": "Gender",
+              "labelExpr": "{'total_arrivals_female': 'Female', 'total_arrivals_male': 'Male'}[datum.label]"
             }
           },
           "size": {"value": 30},
