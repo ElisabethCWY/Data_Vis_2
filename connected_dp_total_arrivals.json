@@ -1,0 +1,74 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Total Arrivals by Gender",
+      "fontSize": 25
+    },
+    "width": 400,
+    "height": 200,
+    "background": "rgb(0,0,0,0)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1/refs/heads/main/aggregated_arrivals_soe.csv",
+      "format": {"type": "csv"}
+    },
+    "transform": [
+      {
+        "fold": ["total_arrivals_female", "total_arrivals_male"],
+        "as": ["Gender", "TotalArrivals"]
+      },
+      {
+        "calculate": "datum.TotalArrivals /1000", 
+        "as": "PercentageArrivals"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "PercentageArrivals",
+        "type": "quantitative",
+        "title": "Total Arrivals (In Thousands)"
+      },
+      "y": {
+        "field": "soe",
+        "type": "nominal",
+        "title": "States",
+        "axis": {
+          "offset": 5,
+          "ticks": false,
+          "minExtent": 70,
+          "domain": false
+        }
+      }
+    },
+    "layer": [
+      {
+        "mark": "line",
+        "encoding": {
+          "detail": {
+            "field": "soe",
+            "type": "nominal"
+          },
+          "color": {"value": "grey"}
+        }
+      },
+      {
+        "mark": {
+          "type": "point",
+          "filled": true,
+          "size": 100
+        },
+        "encoding": {
+          "color": {
+            "field": "Gender",
+            "type": "nominal",
+            "scale": {
+              "domain": ["total_arrivals_female", "total_arrivals_male"],
+              "range": ["#db646f", "#007bff"]
+            }
+          },
+          "size": {"value": 30},
+          "opacity": {"value": 1}
+        }
+      }
+    ]
+  }
+  

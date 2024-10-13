@@ -1,0 +1,109 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1_Submission/refs/heads/main/cpi_arrivals_join.csv"
+    },
+    "vconcat": [
+      {
+        "background": "rgb(0,0,0,0)",
+        "width": 600,
+        "height": 400,
+        
+        "selection": {
+          "stateSelection": {
+            "type": "single",
+            "fields": ["state"],
+            "on": "click",
+            "bind": "legend"
+          }
+        },
+        
+        "mark": {"type": "line", "interpolate": "monotone"},
+        
+        "encoding": {
+          "x": {
+            "timeUnit": "yearmonth",
+            "scale": {"domain": {"param": "time_brush"}},
+            "field": "date",
+            "type": "temporal",
+            "title": "Date",
+            "axis": {
+              "format": "%Y",
+              "tickCount": 5,
+              "labelOverlap": "parity",
+              "grid": false,
+              "format": "%b %Y"
+            }
+          },
+          "y": {
+            "field": "inflation_mom",
+            "type": "quantitative",
+            "title": "Inflation Rate (%)"
+          },
+          "color": {
+            "field": "state",
+            "type": "nominal",
+            "title": "State",
+            "scale": {
+              "scheme": "tableau10"
+            }
+          },
+          "opacity": {
+            "condition": {
+              "selection": "stateSelection",
+              "value": 1
+            },
+            "value": 0.05
+          }
+        }
+      },
+      {
+        "background": "rgb(0,0,0,0)",
+        "width": 600,
+        "height": 100,
+        
+        "mark": {
+          "type": "area",
+         "interpolate": "monotone"
+        },
+        "params": [
+          {
+            "name": "time_brush",
+            "select": {"type": "interval", "encodings": ["x"]}
+          }
+        ],
+        "transform": [
+          {
+            "aggregate": [
+              {
+                "op": "mean",
+                "field": "inflation_mom",
+                "as": "mean_inflation_mom"
+              }
+            ],
+            "groupby": ["date"]
+          }
+        ],
+        "encoding": {
+          "x": {
+            "field": "date",
+            "type": "temporal",
+            "timeUnit": "yearmonth",
+            "axis": {
+              "format": "%Y",
+              "tickCount": 5,
+              "labelOverlap": "parity",
+              "title": "Years",
+              "grid": false
+            }
+          },
+          "y": {
+            "field": "mean_inflation_mom",
+            "type": "quantitative",
+            "title": "Average Month-on-Month Inflation (%)"
+          }
+        }
+      }
+    ]
+  }
+  

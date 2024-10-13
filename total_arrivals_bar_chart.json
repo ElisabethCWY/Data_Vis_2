@@ -8,7 +8,7 @@
   "height": 600,
   "background": "rgb(0,0,0,0)",
   "data": {
-    "url": "aggregated_arrivals_soe.csv",
+    "url":  "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1/refs/heads/main/aggregated_arrivals_soe.csv",
     "format": {"type": "csv"}
   },
   "transform": [
