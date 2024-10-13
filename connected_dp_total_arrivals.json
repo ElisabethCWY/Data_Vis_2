@@ -4,7 +4,7 @@
       "text": "Total Arrivals by Gender",
       "fontSize": 25
     },
-    "width": 400,
+    "width": 450,
     "height": 200,
     "background": "rgb(0,0,0,0)",
     "data": {
@@ -53,8 +53,7 @@
       {
         "mark": {
           "type": "point",
-          "filled": true,
-          "size": 100
+          "filled": true
         },
         "encoding": {
           "color": {
@@ -69,8 +68,15 @@
               "labelExpr": "{'total_arrivals_female': 'Female', 'total_arrivals_male': 'Male'}[datum.label]"
             }
           },
-          "size": {"value": 30},
-          "opacity": {"value": 1}
+          "size": {"value": 70},
+          "opacity": {"value": 1},
+           "tooltip": [
+          {"field": "soe", "type": "nominal", "title": "State"},
+          {"field": "total_arrivals_female", "type": "quantitative", "title": "Female Arrivals"},
+          {"field": "total_arrivals_male", "type": "quantitative", "title": "Male Arrivals"}
+        ]
+          
+
         }
       }
     ]

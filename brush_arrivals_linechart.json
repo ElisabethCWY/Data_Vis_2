@@ -18,7 +18,9 @@
           }
         },
         
-        "mark": {"type": "line", "interpolate": "monotone"},
+        "mark": {"type": "line", 
+        "interpolate": "monotone",
+        "strokeWidth": 3 },
         
         "encoding": {
           "x": {
@@ -55,7 +57,13 @@
               "value": 1
             },
             "value": 0.1
-          }
+          },
+           "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "date", "type": "temporal", "title": "Date", "format": "%b %Y"},
+          {"field": "total_arrivals", "type": "quantitative", "title": "Total Arrivals", "format": ",d"}
+        ]
+          
         }
       },
       {
@@ -104,6 +112,7 @@
             "title": "Average Number of Arrivals (%)"
           }
         }
+
       }
     ]
   }

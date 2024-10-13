@@ -18,7 +18,8 @@
           }
         },
         
-        "mark": {"type": "line", "interpolate": "monotone"},
+        "mark": {"type": "line", 
+        "interpolate": "monotone"},
         
         "encoding": {
           "x": {
@@ -54,7 +55,12 @@
               "value": 1
             },
             "value": 0.05
-          }
+          },
+           "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "date", "type": "temporal", "title": "Date", "format": "%b %Y"},
+          {"field": "inflation_mom", "type": "quantitative", "title": "Inflation Rate"}
+        ]
         }
       },
       {
