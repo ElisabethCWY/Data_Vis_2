@@ -4,11 +4,15 @@
       "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1_Submission/refs/heads/main/cpi_arrivals_join.csv"
     },
     "background": "rgb(0,0,0,0)",
-
+    "title": {
+      "text": "Immigration Arrivals Trends",
+      "fontSize": 20
+    },
+  
     "vconcat": [
       {
-        "width": 600,
-        "height": 400,
+        "width": 450,
+        "height": 300,
         
         "selection": {
           "stateSelection": {
@@ -19,9 +23,11 @@
           }
         },
         
-        "mark": {"type": "line", 
-        "interpolate": "monotone",
-        "strokeWidth": 3 },
+        "mark": {
+          "type": "line", 
+          "interpolate": "monotone",
+          "strokeWidth": 3
+        },
         
         "encoding": {
           "x": {
@@ -35,21 +41,28 @@
               "tickCount": 5,
               "labelOverlap": "parity",
               "grid": false,
-              "format": "%b %Y"
-      
+              "format": "%b %Y",
+              "titleFontSize": 12  
             }
           },
           "y": {
-              "field": "total_arrivals",
-              "type": "quantitative",
-              "title": "Total Arrivals"
-                },
+            "field": "total_arrivals",
+            "type": "quantitative",
+            "title": "Total Arrivals",
+            "axis": {
+              "titleFontSize": 13   
+            }
+          },
           "color": {
             "field": "state",
             "type": "nominal",
             "title": "State",
             "scale": {
               "scheme": "tableau10"
+            },
+            "legend": {
+              "labelFontSize": 14,  
+              "titleFontSize": 16  
             }
           },
           "opacity": {
@@ -59,21 +72,20 @@
             },
             "value": 0.1
           },
-           "tooltip": [
-          {"field": "state", "type": "nominal", "title": "State"},
-          {"field": "date", "type": "temporal", "title": "Date", "format": "%b %Y"},
-          {"field": "total_arrivals", "type": "quantitative", "title": "Total Arrivals", "format": ",d"}
-        ]
-          
+          "tooltip": [
+            {"field": "state", "type": "nominal", "title": "State"},
+            {"field": "date", "type": "temporal", "title": "Date", "format": "%b %Y"},
+            {"field": "total_arrivals", "type": "quantitative", "title": "Total Arrivals", "format": ",d"}
+          ]
         }
       },
       {
-        "width": 600,
+        "width": 450,
         "height": 100,
         
         "mark": {
           "type": "area",
-         "interpolate": "monotone"
+          "interpolate": "monotone"
         },
         "params": [
           {
@@ -103,16 +115,19 @@
               "tickCount": 5,
               "labelOverlap": "parity",
               "title": "Years",
-              "grid": false
+              "grid": false,
+              "titleFontSize": 12   
             }
           },
           "y": {
             "field": "mean_total_arrivals",
             "type": "quantitative",
-            "title": "Average Number of Arrivals (%)"
+            "title": "Average Arrivals (%)",
+            "axis": {
+              "titleFontSize": 13 
+            }
           }
         }
-
       }
     ]
   }

@@ -8,83 +8,108 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="vega_lite_vis.js"></script>
-    <title>Immigrations to Malaysia (2020-2024) </title>
+    <title>Immigrations to Malaysia (2020-2024)</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
     <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="flexbox.css">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- 
+    <style>
+        
+    </style> -->
 </head>
-
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-<style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%; /* Ensure the body and html expand to fit all content */
-      
-    }
-
-    body::before {
-      content: "";
-      background-image: url('testphoto_7.png');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: 100% 100%; /* Ensure the entire image fits within the viewport */
-      background-position: center; /* Center the image in the viewport */
-      position: fixed; /* Fix the background in place */
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%; /* Make it cover the viewport initially */
-      opacity: 0.5;
-      z-index: -1; /* Ensure the background stays behind the content */
-      
-    }
-
-    .container {
-        position: relative;
-        border-radius: 15px; /* Soften corners */
-        margin: 10px 0;
-        }
-
-    .container::before {
-  content: '';
-  background-color: rgb(150, 104, 173); /* Solid background color */
-  opacity: 0.5; /* Opacity applied to background only */
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1; /* Ensure it's behind the content */
-  border-radius: inherit; /* Match the border-radius of the container */
-}
-
-    
-</style>
-
 
 <body>
     <h1 style="text-align: center;">Immigrations to Malaysia (2020 to 2024)</h1>
 
-    <div class="pure-g">
+    <!-- MALAYSIA MAP SEGMENT -->
+    <div class="main">
+        <!-- left text -->
+        <div class="container text-left">
+            <p>Text on the left side goes here. This text can be longer and will wrap properly without pushing the layout out of place.</p>
+        </div>
+        <!-- malaysia map -->
         <div class="container">
-            <div style="position: relative; width: 100%; height: 400px;">
-                <div id="map" style="width: 100%; height: 100%;"></div>
-                <!-- <div style="position: absolute; top: 20px; left: 0; width: 25%; padding: 10px; padding-left: 20px; color: black; text-align: left; font-size: 18px;">
-                    <p>In 2023, it was reported that there are roughly 3 million immigrants in Malaysia, making up 9.9% of the country's population of 33.4 million. The reasons for which people immigrate vary across individuals, most of them coming for work opportunities or refuge.</p> 
-                    <p>Migrants in Malaysia mostly consist of immigrants from Asian countries, such as Indonesia, Bangladesh, and Nepal. These migrants are protected by government programmes that support social protection schemes.</p>
-                </div> -->
+            <div style="position: relative; width: 100%; height: 350px; padding-left: 50px;">
+                <div id="map"></div>
             </div>
+        </div>
+
+        <!-- right text -->
+        <div class="container text-left">
+            <p>Text on the right side goes here. It can also be lengthy, and will wrap correctly within its container without affecting the others.</p>
         </div>
     </div>
 
-    <div class="container"> 
-        <div id="barchart"></div>
+    <!-- WHOLE WORLD MAP SEGMENT -->
+    <div class="main2">
+    <div class="container">
+        <div id="propsym">
+        </div>
+
+        <div class="text">
+            <div style="margin-top: -300px; margin-left: 100px;">
+            <p>
+                Text on the right <br>
+                 side goes here. It can also be<br> 
+                 lengthy, and will wrap correctly <br>
+                 within its container without <br>
+                 affecting the others.<br>
+                </p>
+            </div>
+        </div>
+
+        <div class="text">
+            <div style="margin-top: -230px; margin-left: 690px;">
+            <p>
+                Text on the right <br>
+                 side goes here. It can also be<br> 
+                 lengthy, and will wrap correctly <br>
+                 within its container without <br>
+                 affecting the others.<br>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    <!-- GENDER PART -->
+    <div class="main3">
+        <!-- gender graph-->
+        <div class="container">
+            <div style="position: relative; width: 100%; padding-left: 10px;">
+                <div id="connecteddp"></div>
+            </div>
+        </div>
+
+        <!-- right text -->
+        <div class="container text-left">
+            <p>Text on the right side goes here. It can also be lengthy, and will wrap correctly within its container without affecting the others.</p>
+        </div>
     </div>
 
-    <div class="pure-u-1" style="margin: 0 auto;"> 
+    
+
+    <!-- LINE CHARTS -->
+    <div class="main4">
+        <!-- arrivals graph-->
+        <div class="container">
+                <div id="brusharrive"></div>
+        </div>
+
+        <!-- inflations graph-->
+        <div class="container">
+            <div id="brushinflate"></div>
+    </div>
+      
+    </div>
+    <!-- LINE CHART PART -->
+    <div class="pure-u-1" style= "margin: 0 auto;"> 
         <div id="brushinflate"></div>
         <div id="brusharrive"></div>
     </div>

@@ -3,11 +3,15 @@
     "data": {
       "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1_Submission/refs/heads/main/cpi_arrivals_join.csv"
     },
+    "title": {
+        "text": "Inflation Trends (Month-on-Month)",
+        "fontSize": 20
+      },
     "background": "rgb(0,0,0,0)",
     "vconcat": [
       {
-        "width": 600,
-        "height": 400,
+        "width": 450,
+        "height": 300,
         
         "selection": {
           "stateSelection": {
@@ -18,8 +22,10 @@
           }
         },
         
-        "mark": {"type": "line", 
-        "interpolate": "monotone"},
+        "mark": {
+          "type": "line", 
+          "interpolate": "monotone"
+        },
         
         "encoding": {
           "x": {
@@ -33,13 +39,17 @@
               "tickCount": 5,
               "labelOverlap": "parity",
               "grid": false,
-              "format": "%b %Y"
+              "format": "%b %Y",
+              "titleFontSize": 12
             }
           },
           "y": {
             "field": "inflation_mom",
             "type": "quantitative",
-            "title": "Inflation Rate (%)"
+            "title": "Inflation Rate (%)",
+            "axis": {
+              "titleFontSize": 12
+            }
           },
           "color": {
             "field": "state",
@@ -47,6 +57,11 @@
             "title": "State",
             "scale": {
               "scheme": "tableau10"
+            },
+            "legend": {
+      
+              "labelFontSize": 14,
+              "titleFontSize": 16
             }
           },
           "opacity": {
@@ -56,20 +71,20 @@
             },
             "value": 0.05
           },
-           "tooltip": [
-          {"field": "state", "type": "nominal", "title": "State"},
-          {"field": "date", "type": "temporal", "title": "Date", "format": "%b %Y"},
-          {"field": "inflation_mom", "type": "quantitative", "title": "Inflation Rate"}
-        ]
+          "tooltip": [
+            {"field": "state", "type": "nominal", "title": "State"},
+            {"field": "date", "type": "temporal", "title": "Date", "format": "%b %Y"},
+            {"field": "inflation_mom", "type": "quantitative", "title": "Inflation Rate"}
+          ]
         }
       },
       {
-        "width": 600,
+        "width": 450,
         "height": 100,
         
         "mark": {
           "type": "area",
-         "interpolate": "monotone"
+          "interpolate": "monotone"
         },
         "params": [
           {
@@ -99,13 +114,17 @@
               "tickCount": 5,
               "labelOverlap": "parity",
               "title": "Years",
-              "grid": false
+              "grid": false,
+              "titleFontSize": 12
             }
           },
           "y": {
             "field": "mean_inflation_mom",
             "type": "quantitative",
-            "title": "Average Month-on-Month Inflation (%)"
+            "title": "Average Inflation (%)",
+            "axis": {
+              "titleFontSize": 12
+            }
           }
         }
       }
