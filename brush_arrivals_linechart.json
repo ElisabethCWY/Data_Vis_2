@@ -4,9 +4,9 @@
       "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1_Submission/refs/heads/main/cpi_arrivals_join.csv"
     },
     "background": "rgb(0,0,0,0)",
+
     "vconcat": [
       {
-        "background": "rgb(0,0,0,0)",
         "width": 600,
         "height": 400,
         
@@ -68,7 +68,6 @@
         }
       },
       {
-        "background": "rgb(0,0,0,0)",
         "width": 600,
         "height": 100,
         

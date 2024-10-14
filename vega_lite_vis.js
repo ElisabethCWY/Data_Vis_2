@@ -12,19 +12,25 @@ vegaEmbed("#barchart", vg_bar).then(function(result) {
 
 // Path to the bar chart JSON
 var vg_bar = "brush_inflation_linechart.json";
-vegaEmbed("#inflationlinechart", vg_bar).then(function(result) {
+vegaEmbed("#brushinflate", vg_bar).then(function(result) {
     // Access the Vega view instance if needed
 }).catch(console.error);
 
 // Path to the bar chart JSON
 var vg_bar = "brush_arrivals_linechart.json";
-vegaEmbed("#arrivalslinechart", vg_bar).then(function(result) {
+vegaEmbed("#brusharrive", vg_bar).then(function(result) {
     // Access the Vega view instance if needed
 }).catch(console.error);
 
 // Path to the bar chart JSON
-var vg_bar = ".json";
-vegaEmbed("#arrivalslinechart", vg_bar).then(function(result) {
+var vg_bar = "connected_dp_total_arrivals.json";
+vegaEmbed("#connecteddp", vg_bar).then(function(result) {
+    // Access the Vega view instance if needed
+}).catch(console.error);
+
+// Path to the  JSON
+var vg_bar = "prop_map_sym_countries.json";
+vegaEmbed("#propsym", vg_bar).then(function(result) {
     // Access the Vega view instance if needed
 }).catch(console.error);
 
