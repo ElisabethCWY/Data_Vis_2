@@ -5,7 +5,9 @@
     "background": "rgb(0,0,0,0)",
     "title": {
       "text": "Immigrant Origin Countries",
-      "fontSize": 20
+      "fontSize": 20, 
+      "anchor": "middle",
+      "dx": 130
     },
     "projection": {"type": "equalEarth"},
     
