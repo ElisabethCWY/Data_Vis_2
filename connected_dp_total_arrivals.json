@@ -92,8 +92,8 @@
           "opacity": {"value": 1},
           "tooltip": [
             {"field": "soe", "type": "nominal", "title": "State"},
-            {"field": "total_arrivals_female", "type": "quantitative", "title": "Female Arrivals"},
-            {"field": "total_arrivals_male", "type": "quantitative", "title": "Male Arrivals"}
+            {"field": "total_arrivals_female", "type": "quantitative", "title": "Female Arrivals", "format": ",d"},
+            {"field": "total_arrivals_male", "type": "quantitative", "title": "Male Arrivals", "format": ",d"}
           ],
            "opacity": {
               "condition": {

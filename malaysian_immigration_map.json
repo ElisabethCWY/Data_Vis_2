@@ -59,8 +59,8 @@
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "State"},
-      {"field": "total_arrivals", "type": "quantitative", "title": "Total Arrivals"},
-      {"field": "total_population", "type": "quantitative", "title": "Total Population"},
+      {"field": "total_arrivals", "type": "quantitative", "title": "Total Arrivals", "format": ",d"},
+      {"field": "total_population", "type": "quantitative", "title": "Total Population", "format": ",d"},
       {
         "field": "arrivals_per_population",
         "type": "quantitative",
