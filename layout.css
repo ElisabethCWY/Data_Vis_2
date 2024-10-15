@@ -1,4 +1,7 @@
 
+h1{
+    font-family: 'Times New Roman', serif;
+}
 
 #map {
     width: 100%; /* Set to full width of the parent container */
@@ -47,8 +50,8 @@ body::before {
 
 .container::before {
     content: '';
-    background-color: rgba(246, 214, 190, 0.74); /* Solid background color */
-    opacity: 0.8; /* Opacity applied to background only */
+    background-color: rgba(242, 240, 239, 0.74); /* Solid background color */
+    opacity: 0.9; /* Opacity applied to background only */
     position: absolute;
     top: 0;
     left: 0;
@@ -56,11 +59,19 @@ body::before {
     bottom: 0;
     z-index: -1; /* Ensure it's behind the content */
     border-radius: inherit; /* Match the border-radius of the container */
+    
 }
 
 .text-left, .text-right {
-    padding: 20px; /* Add padding for text containers */
+    padding: 5px; /* Add padding for text containers */
+    padding-left: 10px;
+    padding-right: 10px;
     word-wrap: break-word; /* Allow long words to break and wrap to the next line */
+    text-align: justify;
+    position: relative;
+    z-index: 5;
+    font-size: 14px;
+    font-family: 'Helvetica', sans-serif;
 }
 
 #map {
@@ -72,32 +83,43 @@ body::before {
     display:flex;
     justify-content: center;
     margin: auto;
-    width: 100%;
+    width: 95%;
 }
 
 .main2{
     display:flex;
     justify-content: center;
     margin: auto;
-    width: 60%;
+    width: 95%;
 }
 
 .main3{
     display:flex;
     justify-content: center;
     margin: auto;
-    width: 60%;
+    width: 95%;
 }
 
 .main4{
     display:flex;
     justify-content: center;
     margin: auto;
-    width: 80%;
+    width: 95%;
 }
 
-.text{
-    position: absolute;
-    z-index: 5;
+
+
+.metadata{
+    display:flex;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
 }
+
+.vertical{
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+}
+
 

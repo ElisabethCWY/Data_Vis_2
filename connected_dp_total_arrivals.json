@@ -2,10 +2,10 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
       "text": "Total Arrivals by Gender",
-      "fontSize": 25
+      "fontSize": 20
     },
-    "width": 450,
-    "height": 200,
+    "width": 500,
+    "height": 300,
     "background": "rgb(0,0,0,0)",
     "data": {
       "url": "https://raw.githubusercontent.com/ElisabethCWY/3179_HW1/refs/heads/main/aggregated_arrivals_soe.csv",
@@ -25,7 +25,8 @@
       "x": {
         "field": "PercentageArrivals",
         "type": "quantitative",
-        "title": "Total Arrivals (In Thousands)"
+        "title": "Total Arrivals (In Thousands)",
+        "axis": {"titleFontSize": 13}
       },
       "y": {
         "field": "soe",
@@ -35,7 +36,8 @@
           "offset": 5,
           "ticks": false,
           "minExtent": 70,
-          "domain": false
+          "domain": false,
+        "titleFontSize": 13
         }
       }
     },
@@ -65,7 +67,9 @@
             },
             "legend": {
               "title": "Gender",
-              "labelExpr": "{'total_arrivals_female': 'Female', 'total_arrivals_male': 'Male'}[datum.label]"
+              "labelExpr": "{'total_arrivals_female': 'Female', 'total_arrivals_male': 'Male'}[datum.label]",
+                "labelFontSize": 14,
+                "titleFontSize": 16
             }
           },
           "size": {"value": 70},

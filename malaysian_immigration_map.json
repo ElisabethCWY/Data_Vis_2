@@ -43,7 +43,12 @@
       "field": "arrivals_per_population",
       "type": "quantitative",
       "title": "Immigrants per Population (%)",
-      "scale": {"type": "log"}
+      "scale": {"type": "log"},
+      "legend": {
+      "labelFontSize": 11,  
+      "titleFontSize": 12  
+    }
+
     },
     "opacity": {
       "condition": {

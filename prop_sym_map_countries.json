@@ -3,7 +3,10 @@
     "width": 1100,
     "height": 550,
     "background": "rgb(0,0,0,0)",
-    "title": "Immigrants Origin Country",
+    "title": {
+      "text": "Immigrant Origin Countries",
+      "fontSize": 20
+    },
     "projection": {"type": "equalEarth"},
     
       "params": [
@@ -47,7 +50,7 @@
           "size": {
             "field": "total_arrivals",
             "type": "quantitative",
-            "title": "Total Immigrant Arrivals",
+            "title": "Total Arrivals",
             "scale": {
               "type": "log",
               "domain": [1, 10000, 500000],
@@ -61,7 +64,10 @@
               "domain": [1, 10000, 500000],
               "range": ["white", "steelblue", "black"]
             },
-            "title": "Total Immigrant Arrivals"
+            "legend": {
+            "labelFontSize": 14,  
+            "titleFontSize": 16  
+          }
           },
           "tooltip": [
             {"field": "country_full", "type": "nominal", "title": "Country"},
