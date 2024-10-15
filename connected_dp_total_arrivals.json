@@ -21,6 +21,7 @@
         "as": "PercentageArrivals"
       }
     ],
+
     "encoding": {
       "x": {
         "field": "PercentageArrivals",
@@ -37,11 +38,12 @@
           "ticks": false,
           "minExtent": 70,
           "domain": false,
-        "titleFontSize": 13
+          "titleFontSize": 13
         }
       }
     },
     "layer": [
+      
       {
         "mark": "line",
         "encoding": {
@@ -49,10 +51,24 @@
             "field": "soe",
             "type": "nominal"
           },
-          "color": {"value": "grey"}
+          "color": {"value": "grey"},
+          "opacity": {
+              "condition": {
+                "selection": "gender_selection",
+                "value": 1
+              },
+      "value": 0.1
+    }
         }
       },
       {
+        "selection": {
+      "gender_selection": {
+        "type": "multi",
+        "fields": ["Gender"],
+        "bind": "legend"
+      }
+    },
         "mark": {
           "type": "point",
           "filled": true
@@ -63,26 +79,30 @@
             "type": "nominal",
             "scale": {
               "domain": ["total_arrivals_female", "total_arrivals_male"],
-              "range": ["#db646f", "#007bff"]
+              "range": ["steelblue", "orange"] 
             },
             "legend": {
               "title": "Gender",
               "labelExpr": "{'total_arrivals_female': 'Female', 'total_arrivals_male': 'Male'}[datum.label]",
-                "labelFontSize": 14,
-                "titleFontSize": 16
+              "labelFontSize": 14,
+              "titleFontSize": 16
             }
           },
           "size": {"value": 70},
           "opacity": {"value": 1},
-           "tooltip": [
-          {"field": "soe", "type": "nominal", "title": "State"},
-          {"field": "total_arrivals_female", "type": "quantitative", "title": "Female Arrivals"},
-          {"field": "total_arrivals_male", "type": "quantitative", "title": "Male Arrivals"}
-        ]
-          
-
+          "tooltip": [
+            {"field": "soe", "type": "nominal", "title": "State"},
+            {"field": "total_arrivals_female", "type": "quantitative", "title": "Female Arrivals"},
+            {"field": "total_arrivals_male", "type": "quantitative", "title": "Male Arrivals"}
+          ],
+           "opacity": {
+              "condition": {
+                "selection": "gender_selection",
+                "value": 1
+              },
+      "value": 0.1
+    }
         }
       }
     ]
-  }
-  
+}
