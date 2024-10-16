@@ -22,7 +22,7 @@ body::before {
     background-image: url('testphoto_7.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% 100%; /* Ensure the entire image fits within the viewport */
+    background-size: 100% 105%; /* Ensure the entire image fits within the viewport */
     background-position: center; /* Center the image in the viewport */
     position: fixed; /* Fix the background in place */
     top: 0;
