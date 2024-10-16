@@ -48,7 +48,7 @@
         "domain": [0.0001, 0.001, 0.01, 0.1, 1]
       },
       "legend": {
-        "labelFontSize": 11,  
+        "labelFontSize": 13,  
         "titleFontSize": 12,
         "type": "symbol",
         "symbolType":"square"
